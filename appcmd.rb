@@ -1,18 +1,19 @@
 class Appcmd < Formula
   desc "Right-Command based app switcher for macOS"
   homepage "https://github.com/clearnote01/appcmd"
-  url "https://github.com/clearnote01/appcmd/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "ad1a0169fac1c478677e4267d8d2f441758148eead2d49829af96c7f6ca60657"
+  url "https://github.com/clearnote01/appcmd/archive/refs/tags/v1.0.6.tar.gz"
+  sha256 "05118c3d9b29fb1d39a09b7715d95a1ba68f25cc2209db73327e853153a0fd04"
   license "MIT"
 
   def install
-    # Build with Info.plist embedded for stable identity
+    # Dynamically inject the Homebrew version into the Info.plist before building
+    system "/usr/libexec/PlistBuddy", "-c", "Set :CFBundleShortVersionString #{version}", "Sources/Info.plist"
+    
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/appcmd"
   end
 
   service do
-    # Use the stable opt_bin path to help with Accessibility permissions
     run [opt_bin/"appcmd"]
     keep_alive true
     process_type :background
