@@ -5,7 +5,6 @@ class Appcmd < Formula
   sha256 "77a7a141498767be808aaac77f6e698dfb7c243649cf45d17ea21c4ef70a0fb6"
   license "MIT"
 
-  depends_on :xcode => ["14.0", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
