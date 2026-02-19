@@ -1,8 +1,8 @@
 class Appcmd < Formula
   desc "Right-Command based app switcher for macOS"
   homepage "https://github.com/clearnote01/appcmd"
-  url "https://github.com/clearnote01/appcmd/archive/refs/tags/v1.0.9.tar.gz"
-  sha256 "20d5b88d63ef9403c7d602f0056ddf83506648e431ef8af8d4fe11951cb999c3"
+  url "https://github.com/clearnote01/appcmd/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "74e0c58558164eb913a084d33a12d9c208e26a5008d976eb5e02a1b005b3ccd9"
   license "MIT"
 
   def install
